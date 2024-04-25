@@ -35,3 +35,58 @@ In summary, `getStaticPaths` in Next.js is crucial for generating dynamic routes
 **version 21**
 [code-first]
 (https://doc.sitecore.com/xp/en/developers/hd/21/sitecore-headless-development/create-a-new-component-in-a-jss-next-js-app-using-the-code-first-development-workflow.html)
+
+## recommended folder structure
+
+A recommended folder structure for developing components using SASS in Sitecore with JSS and a code-first approach typically includes separate directories for components, styles (SASS), and assets. Here's an example of such a folder structure:
+
+```
+project-root/
+|-- sitecore/
+|   |-- definitions/
+|   |   |-- components/
+|   |   |   |-- MyComponent1.sitecore.ts
+|   |   |   |-- MyComponent2.sitecore.ts
+|   |   |-- layouts/
+|   |   |   |-- MainLayout.sitecore.ts
+|   |-- data/
+|   |   |-- content/
+|   |   |   |-- en.yml
+|-- src/
+|   |-- components/
+|   |   |-- MyComponent1/
+|   |   |   |-- MyComponent1.tsx
+|   |   |   |-- MyComponent1.scss
+|   |   |-- MyComponent2/
+|   |   |   |-- MyComponent2.tsx
+|   |   |   |-- MyComponent2.scss
+|   |-- styles/
+|   |   |-- base/
+|   |   |   |-- _variables.scss
+|   |   |   |-- _mixins.scss
+|   |   |-- components/
+|   |   |   |-- _my-component1.scss
+|   |   |   |-- _my-component2.scss
+|   |   |-- main.scss
+|-- public/
+|   |-- assets/
+|   |   |-- images/
+|   |   |-- fonts/
+```
+
+In this structure:
+
+- `sitecore/`: Contains Sitecore-specific files and configurations.
+- `src/`: Contains source code for your Next.js app.
+  - `components/`: Contains directories for each component, each with a TypeScript file (`*.tsx`) and a SASS file (`*.scss`).
+  - `styles/`: Contains SASS stylesheets, including base styles (`base/`), component-specific styles (`components/`), and the main entry point (`main.scss`).
+- `public/`: Contains static assets like images and fonts.
+
+Here are some explanations for key directories and files:
+
+- `sitecore/definitions/components/`: Contains JSON-like TypeScript files defining your components in a code-first approach.
+- `src/components/`: Contains the actual React components (`.tsx` files) along with their associated SASS stylesheets (`.scss` files).
+- `src/styles/`: Contains SASS stylesheets organized by purpose, such as base styles, component-specific styles, and a main entry point for importing styles.
+- `public/assets/`: Contains static assets like images and fonts that your components may use.
+
+This structure separates concerns by organizing components, styles, and assets in their respective directories, making it easier to manage and maintain a scalable and modular codebase for your Sitecore JSS project.
