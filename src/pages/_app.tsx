@@ -12,6 +12,7 @@ import Bootstrap from 'src/Bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'nprogress/nprogress.css';
 import 'assets/app.css';
+import ThemeProvider from 'src/contexts/theme/ThemeProvider';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 
@@ -23,7 +24,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
   const { dictionary, ...rest } = pageProps;
 
   return (
-    <>
+    <ThemeProvider>
       <Bootstrap {...pageProps} />
       {/*
         // Use the next-localization (w/ rosetta) library to provide our translation dictionary to the app.
@@ -33,7 +34,7 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
       <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
         <Component {...rest} />
       </I18nProvider>
-    </>
+    </ThemeProvider>
   );
 }
 
